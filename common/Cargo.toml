@@ -1,0 +1,14 @@
+[package]
+name = "chemodots-common"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[lib]
+name = "chemodots_common"
+path = "src/lib.rs"
+
+[dependencies]
+itertools = "0.12.0"
+zip_next = "0.10.3"
+rdkit-rust = { path = "../../../rdkit-rust" }

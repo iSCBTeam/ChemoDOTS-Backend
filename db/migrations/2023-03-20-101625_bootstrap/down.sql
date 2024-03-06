@@ -1,0 +1,85 @@
+ALTER TABLE moiety DROP CONSTRAINT fk__moiety__moiety_group;
+
+DROP INDEX index__moiety__id_moiety_group;
+
+ALTER TABLE substructure_filter DROP CONSTRAINT fk__substructure_filter__substructure_filter_group;
+
+DROP INDEX index__substructure_filter__id_substructure_filter_group;
+
+ALTER TABLE compound DROP CONSTRAINT fk__compound__compound_provider;
+
+DROP INDEX index__compound__id_compound_provider;
+
+ALTER TABLE building_block_origin DROP CONSTRAINT fk__building_block_origin__building_block;
+ALTER TABLE building_block_origin DROP CONSTRAINT fk__building_block_origin__compound;
+
+DROP INDEX index__building_block_origin__id_building_block;
+DROP INDEX index__building_block_origin__id_compound;
+
+ALTER TABLE building_block_reactant DROP CONSTRAINT fk__building_block_reactant__building_block;
+ALTER TABLE building_block_reactant DROP CONSTRAINT fk__building_block_reactant__reaction;
+
+DROP INDEX index__building_block_reactant__id_building_block;
+DROP INDEX index__building_block_reactant__id_reaction;
+
+ALTER TABLE experiment_selected_provider DROP CONSTRAINT fk__experiment_selected_provider__experiment;
+ALTER TABLE experiment_selected_provider DROP CONSTRAINT fk__experiment_selected_provider__compound_provider;
+
+DROP INDEX index__experiment_selected_provider__id_experiment;
+DROP INDEX index__experiment_selected_provider__id_compound_provider;
+
+ALTER TABLE experiment_postproc_filter DROP CONSTRAINT fk__experiment_postproc_filter__experiment;
+
+DROP INDEX index__experiment_postproc_filter__id_experiment;
+
+ALTER TABLE experiment_frag DROP CONSTRAINT fk__experiment_frag__experiment;
+ALTER TABLE experiment_frag DROP CONSTRAINT fk__experiment_frag__moiety;
+
+DROP INDEX index__experiment_frag__id_experiment;
+DROP INDEX index__experiment_frag__id_moiety;
+
+ALTER TABLE experiment_frag_reactant DROP CONSTRAINT fk__experiment_frag_reactant__experiment_frag;
+ALTER TABLE experiment_frag_reactant DROP CONSTRAINT fk__experiment_frag_reactant__reaction;
+
+DROP INDEX index__experiment_frag_reactant__id_experiment_frag;
+DROP INDEX index__experiment_frag_reactant__id_reaction;
+
+ALTER TABLE experiment_substructure_filter DROP CONSTRAINT fk__experiment_substructure_filter__experiment;
+ALTER TABLE experiment_substructure_filter DROP CONSTRAINT fk__experiment_substructure_filter__substructure_filter;
+
+DROP INDEX index__experiment_substructure_filter__id_experiment;
+DROP INDEX index__experiment_substructure_filter__id_substructure_filter;
+
+ALTER TABLE experiment_product DROP CONSTRAINT fk__experiment_product__experiment_frag_reactant;
+
+DROP INDEX index__experiment_product__id_experiment_frag_reactant;
+
+ALTER TABLE experiment_product_origin DROP CONSTRAINT fk__experiment_product_origin__experiment_product;
+ALTER TABLE experiment_product_origin DROP CONSTRAINT fk__experiment_product_origin__building_block_reactant;
+
+DROP INDEX index__experiment_product_origin__id_experiment_product;
+DROP INDEX index__experiment_product_origin__id_building_block_reactant;
+
+DROP TABLE moiety_group;
+DROP TABLE moiety;
+DROP TABLE substructure_filter_group;
+DROP TABLE substructure_filter;
+DROP TABLE reaction;
+DROP TABLE compound_provider;
+DROP TABLE compound;
+DROP TABLE building_block;
+DROP TABLE building_block_origin;
+DROP TABLE building_block_reactant;
+DROP TABLE experiment;
+DROP TABLE experiment_selected_provider;
+DROP TABLE experiment_postproc_filter;
+DROP TABLE experiment_frag;
+DROP TABLE experiment_frag_reactant;
+DROP TABLE experiment_substructure_filter;
+DROP INDEX index__experiment_product__descriptors;
+DROP TABLE experiment_product;
+DROP TABLE experiment_product_origin;
+
+DROP TYPE realrange;
+
+DROP FUNCTION real_subtype_diff;

@@ -1,0 +1,22 @@
+[package]
+name = "chemodots-db"
+version = "0.1.0"
+edition = "2021"
+publish = false
+build = "build.rs"
+
+[lib]
+name = "chemodots_db"
+path = "src/lib.rs"
+
+[dependencies]
+chrono = { version = "0.4" }
+diesel = { version = "2.1", features = ["chrono", "postgres", "r2d2", "uuid"] }
+diesel_migrations = { version = "2.1" }
+dotenvy = "0.15"
+field_count = "0.1.1"
+num_cpus = "1.16"
+scheduled-thread-pool = "0.2.7"
+serde_json = "1.0"
+serde = "1.0"
+uuid = "1.5"

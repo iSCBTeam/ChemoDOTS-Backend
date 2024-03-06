@@ -1,0 +1,32 @@
+[package]
+name = "chemodots-postproc"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[dependencies]
+const-hex = "1.9"
+chrono = "0.4"
+crossbeam = "0.8"
+itertools = "0.12.0"
+num_cpus = "1.16"
+rayon = "1.8"
+serde_json = "1.0"
+serde = "1.0"
+usvg = "0.37.0"
+uuid = { version = "1.5.0", features = [ "serde" ] }
+rdkit-rust = { path = "../../../rdkit-rust" }
+chemodots-db = { path = "../db" }
+chemodots-reactor = { path = "../reactor" }
+
+[[bin]]
+name = "chemodots-postproc-filter"
+path = "src/bin/filter.rs"
+
+[[bin]]
+name = "chemodots-postproc-generator2d"
+path = "src/bin/generator2d.rs"
+
+[[bin]]
+name = "chemodots-postproc-generator3d"
+path = "src/bin/generator3d.rs"
